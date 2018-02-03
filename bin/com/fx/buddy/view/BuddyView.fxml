@@ -13,17 +13,16 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fx.buddy.view.BuddyMapping">
    <children>
       <SplitPane dividerPositions="0.3695652173913043" layoutX="59.0" layoutY="135.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="-15.0" layoutY="34.0" prefHeight="398.0" prefWidth="217.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="buddyTable" layoutX="-15.0" layoutY="34.0" prefHeight="398.0" prefWidth="217.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="103.0" text="Firstname" />
-                      <TableColumn prefWidth="113.0" text="Name" />
+                      <TableColumn fx:id="firstnameColumn" prefWidth="103.0" text="Firstname" />
+                      <TableColumn fx:id="nameColumn" prefWidth="113.0" text="Name" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -66,13 +65,13 @@
                           </rowConstraints>
                            <children>
                               <Label text="Name :" />
-                              <Label text="Bill" GridPane.columnIndex="1" />
+                              <Label fx:id="valueName" text="Bill" GridPane.columnIndex="1" />
                               <Label text="Firstname :" GridPane.rowIndex="1" />
                               <Label text="Birth :" GridPane.rowIndex="2" />
-                              <Label text="Coco" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="1970 01 01" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="valueFirstname" text="Coco" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="valueBirth" text="1970 01 01" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label text="Sex :" GridPane.rowIndex="3" />
-                              <Label text="Male" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="valueSex" text="Male" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </center>
