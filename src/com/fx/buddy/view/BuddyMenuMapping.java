@@ -40,4 +40,6 @@ public class BuddyMenuMapping {
 	    this.main.affichePersonneDialogue(new Buddy(), "Création d'une personne");	    
 	}
 	
+
+	
 }

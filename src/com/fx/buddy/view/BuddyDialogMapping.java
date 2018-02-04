@@ -93,6 +93,7 @@ public class BuddyDialogMapping {
 
 	//sauvegarde de la personne, que ce soit une édition ou une création
 	public void sauvegarder() {
+		
 		if(controlerFormulaire()) {
 			personne.setNom(new SimpleStringProperty(formName.getText()));
 			personne.setPrenom(new SimpleStringProperty(formFirstname.getText()));
@@ -115,6 +116,12 @@ public class BuddyDialogMapping {
 			//S'il s'agit d'une création, on ajoute la personne dans le tableau
 			if(stageDialogue.getTitle().startsWith("Création")) {
 				main.getListDePersonne().add(personne);
+			}
+			else if(stageDialogue.getTitle().startsWith("Edition")) {
+				
+				// replace existing Buddy : TODO : replace 0 with current index !
+				//main.getListDePersonne().set(0, personne);
+				//main.getListDePersonne().;
 			}
 
 			//On ferme la boîte de dialogue

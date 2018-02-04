@@ -11,6 +11,7 @@ import com.fx.buddy.view.BuddyMenuMapping;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -37,6 +38,15 @@ public class Main extends Application {
 		listDePersonne.add(new Buddy("D'Arc", "Jeanne", LocalDate.of(1431, 5, 30), Sex.FEMININ));
 		listDePersonne.add(new Buddy("Caisse", "Jean", LocalDate.of(1950, 3, 3), Sex.MASCULIN));
 		
+		// add a listener on change
+		listDePersonne.addListener(new ListChangeListener<Buddy>() { 
+			  
+			@Override
+			public void onChanged(Change<? extends Buddy> arg0) {
+				// TODO Auto-generated method stub
+				System.out.println("list has changed");
+			}            
+		});
 	}
 	
 	@Override

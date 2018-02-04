@@ -23,7 +23,7 @@ package com.fx.buddy.model;
 			nom.set(n);
 			prenom.set(p);
 			dateDeNaissance.set(ddn);
-			sexe.set(s);;
+			sexe.set(s);
 		}
 		public ObjectProperty<LocalDate> getDateDeNaissance() {return dateDeNaissance;}
 		public void setDateDeNaissance(ObjectProperty<LocalDate> dateDeNaissance) {this.dateDeNaissance = dateDeNaissance;}

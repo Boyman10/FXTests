@@ -105,7 +105,7 @@ public class BuddyMapping {
 		//Si aucune ligne n'est sélectionnée, index vaudra -1
 		if (index > -1) {
 			
-			main.affichePersonneDialogue(buddyTable.getItems().get(index),buddyTable.getItems().get(index).getPrenom().toString()) ;
+			main.affichePersonneDialogue(buddyTable.getItems().get(index),"Edition of buddy...") ;
 			
 		}
 		else {
