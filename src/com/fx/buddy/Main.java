@@ -13,8 +13,10 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -30,7 +32,7 @@ public class Main extends Application {
 	private BorderPane conteneurPrincipal;
 	
 	private ObservableList<Buddy> listDePersonne = FXCollections.observableArrayList();
-
+	private int selectedIndex = -1;
 	
 	public Main() {
 		
@@ -52,8 +54,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		stagePrincipal = primaryStage;
-		//Ca ne vous rappelle pas une JFrame ?
-		stagePrincipal.setTitle("Application de gestion de personnes");
+		// 	like a JFrame
+		stagePrincipal.setTitle("Buddy launcher");
 		
 		
 		//Nous allons utiliser nos fichier FXML dans ces deux m√©thodes
@@ -101,6 +103,23 @@ public class Main extends Application {
 			//Nous r√©cup√©rons notre conteneur qui contiendra les donn√©es
 			//Pour rappel, c'est un AnchorPane...
 			AnchorPane conteneurPersonne = (AnchorPane) loader.load();
+			
+			conteneurPersonne.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<>() {
+
+				/**
+				 * TEsting event on List table
+				 * @param event
+				 */
+				@Override
+				public void handle(MouseEvent event) {
+					System.out.println("Handling event " + event.getEventType());
+			        event.consume();
+					
+				}
+				
+				
+				
+			});
 			//Qui nous ajoutons √† notre conteneur principal
 			//Au centre, puisque'il s'agit d'un BorderPane
 			conteneurPrincipal.setCenter(conteneurPersonne);
@@ -121,6 +140,7 @@ public class Main extends Application {
 	//MÈthode qui va va afficher la popup d'Èdition
 	//ou de crÈation d'une personne et initialiser son contrÙleur
 	public void affichePersonneDialogue(Buddy personne, String titre) {
+		
 	    try {
 	        FXMLLoader loader = new FXMLLoader();
 	        loader.setLocation(Main.class.getResource("view/BuddyDialog.fxml"));
@@ -169,4 +189,33 @@ public class Main extends Application {
 		return stageDialogue;
 	}	
 	
+	/**
+	 * Method to store the selected index of the buddy table - used by edit
+	 * @param index
+	 */
+	public void setBuddyTableIndex(int index) {
+		
+		selectedIndex = index;
+		
+	}
+	
+	public int getIndex() {
+		return selectedIndex;
+	}
+	/**
+	 * Retrieving Buddy from index of table
+	 * @return
+	 */
+	public Buddy getBuddyFromIndex() {
+		
+		// TODO : add exception handling in case index above size of list
+		if (selectedIndex > -1)
+		{
+			Buddy myBuddy = listDePersonne.get(selectedIndex);
+			
+			return myBuddy;
+		}
+		
+		return null;
+	}
 }

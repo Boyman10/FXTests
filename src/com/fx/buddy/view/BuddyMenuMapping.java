@@ -40,6 +40,16 @@ public class BuddyMenuMapping {
 	    this.main.affichePersonneDialogue(new Buddy(), "Création d'une personne");	    
 	}
 	
+	@FXML
+	public void edit() {
+		
+		System.out.println("Clicked on edit");
+		// we edit the selected item if any
+		Buddy curBuddy;
+		if((curBuddy = this.main.getBuddyFromIndex()) != null)
+			this.main.affichePersonneDialogue(curBuddy, "Edition of Buddy");	    
+	}
+	
 
 	
 }

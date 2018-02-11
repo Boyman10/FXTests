@@ -3,7 +3,7 @@ package com.fx.buddy.model;
 
 public enum Sex {
 	MASCULIN("Masculin"),
-	FEMININ("FÃ©minin"),
+	FEMININ("Féminin"),
 	INCONNU("Inconnu");
 	
 	private String name = "";

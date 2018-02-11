@@ -103,6 +103,8 @@ public class BuddyMapping {
 	public void editBuddy() {
 		int index = buddyTable.getSelectionModel().getSelectedIndex();
 		//Si aucune ligne n'est sélectionnée, index vaudra -1
+		
+		System.out.println("Clicked on edit Buddy index: " + index);
 		if (index > -1) {
 			
 			main.affichePersonneDialogue(buddyTable.getItems().get(index),"Edition of buddy...") ;
@@ -115,5 +117,28 @@ public class BuddyMapping {
 			probleme.showAndWait();
 		}
 	}	
+	
+	/**
+	 * Tell the main class which item is selected :
+	 */
+	@FXML
+	public void setBuddy() {	
+		
+		int index = buddyTable.getSelectionModel().getSelectedIndex();
+		//Si aucune ligne n'est sélectionnée, index vaudra -1
+		if (index > -1) {
+			
+			main.setBuddyTableIndex(index) ;
+			
+		}
+		else {
+			Alert probleme = new Alert(AlertType.ERROR);
+			probleme.setTitle("Erreur");
+			probleme.setHeaderText("Veuillez sélectionnez une ligne dans le tableau");
+			probleme.showAndWait();
+		}	
+		
+	}
+	
 	
 }

@@ -19,6 +19,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * modal dialog aimed to edit or add a new Buddy
+ * @author hackme
+ *
+ */
 public class BuddyDialogMapping {
 
 	private Stage stageDialogue;
@@ -120,8 +125,7 @@ public class BuddyDialogMapping {
 			else if(stageDialogue.getTitle().startsWith("Edition")) {
 				
 				// replace existing Buddy : TODO : replace 0 with current index !
-				//main.getListDePersonne().set(0, personne);
-				//main.getListDePersonne().;
+				main.getListDePersonne().set(main.getIndex(), personne);
 			}
 
 			//On ferme la boîte de dialogue
